@@ -10,3 +10,10 @@ only-run-jupyter-notebook:
 			   andreformento/jupyter-notebook
 
 run-jupyter-notebook: build-jupyter-notebook only-run-jupyter-notebook
+
+run-mlflow:
+	docker rm -f mlflow || true
+	docker build -t andreformento/mlflow mlflow
+	docker run --network="host" \
+			   --name mlflow \
+			   andreformento/mlflow
