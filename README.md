@@ -19,3 +19,4 @@
 - [Desigualdade de Hoeffding - exercícios](https://edisciplinas.usp.br/pluginfile.php/6627082/mod_resource/content/2/notas_e_exercicios_hoeffding_mae326_.pdf)
 - [Aprendizado de máquina: uma abordagem estatística](http://www.rizbicki.ufscar.br/AME.pdf)
 - [lista de exercício e correção](https://www.ime.usp.br/~fanajman/aprend_estat/)
+- [coursera, machine-learning](https://pt.coursera.org/learn/machine-learning)
