@@ -18,11 +18,18 @@ USER ${NB_UID}
 
 # Install from requirements.txt file
 RUN pip uninstall -y h5py typing-extensions bokeh && \
-    pip install typing-extensions==3.7.4.3 && \
-    conda install -y -c anaconda h5py==3.4.0
+    pip install typing-extensions==4.2.0 && \
+    conda install -y -c anaconda h5py==3.6.0
 
 COPY --chown=${NB_UID}:${NB_GID} requirements.txt /tmp/requirements.txt
-RUN pip install --quiet --no-cache-dir --requirement /tmp/requirements.txt && \
+RUN pip config --global set http.sslVerify false \
+    pip install --trusted-host pypi.org \
+                --trusted-host pypi.python.org \
+                --trusted-host files.pythonhosted.org \
+                --default-timeout=10 \
+                --quiet \
+                --no-cache-dir \
+                --requirement /tmp/requirements.txt && \
     fix-permissions "${CONDA_DIR}" && \
     fix-permissions "/home/${NB_USER}"
 
