@@ -1,6 +1,6 @@
 # learning-machine-learning
 
-- `make run-jupyter-notebook`
+- `make start`
 
 
 ## References

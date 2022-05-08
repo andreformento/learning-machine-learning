@@ -1,20 +1,18 @@
 TAG_VERSION ?= 0.0.1
 
-build-jupyter-notebook:
+build:
 	docker build -t andreformento/jupyter-notebook:${TAG_VERSION} .
 
-publish-jupyter-notebook: build-jupyter-notebook
+publish: build
 	docker push andreformento/jupyter-notebook:${TAG_VERSION}
 
-only-run-jupyter-notebook:
+start:
 	docker rm -f jupyter-notebook || true
 	docker run --network="host" \
 			   --name jupyter-notebook \
 			   -v "${PWD}/src":/home/jovyan/work/src \
 			   -e JUPYTER_ENABLE_LAB=yes \
 			   andreformento/jupyter-notebook:${TAG_VERSION}
-
-run-jupyter-notebook: build-jupyter-notebook only-run-jupyter-notebook
 
 run-mlflow:
 	docker rm -f mlflow || true
