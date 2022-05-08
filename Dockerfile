@@ -1,9 +1,9 @@
 # Start from a core stack version
-FROM jupyter/all-spark-notebook:spark-3.2.0
+FROM jupyter/all-spark-notebook:spark-3.2.1
 
-ARG spark_version=3.2.0
+ARG spark_version=3.2.1
 ARG hadoop_version=3.2
-ARG spark_checksum=EBE51A449EBD070BE7D3570931044070E53C23076ABAD233B3C51D45A7C99326CF55805EE0D573E6EB7D6A67CFEF1963CD77D6DC07DD2FD70FD60DA9D1F79E5E
+ARG spark_checksum=145ADACF189FECF05FBA3A69841D2804DD66546B11D14FC181AC49D89F3CB5E4FECD9B25F56F0AF767155419CD430838FB651992AEB37D3A6F91E7E009D1F9AE
 ARG openjdk_version=11
 
 USER root
@@ -18,11 +18,17 @@ USER ${NB_UID}
 
 # Install from requirements.txt file
 RUN pip uninstall -y h5py typing-extensions bokeh && \
-    pip install typing-extensions==3.7.4.3 && \
-    conda install -y -c anaconda h5py==3.4.0
+    pip install typing-extensions==4.2.0 && \
+    conda install -y -c anaconda h5py==3.6.0
 
 COPY --chown=${NB_UID}:${NB_GID} requirements.txt /tmp/requirements.txt
-RUN pip install --quiet --no-cache-dir --requirement /tmp/requirements.txt && \
+
+RUN pip3 install --trusted-host pypi.org \
+                 --trusted-host pypi.python.org \
+                 --trusted-host files.pythonhosted.org \
+                 --default-timeout=10 \
+                 --no-cache-dir \
+                 --requirement /tmp/requirements.txt && \
     fix-permissions "${CONDA_DIR}" && \
     fix-permissions "/home/${NB_USER}"
 
