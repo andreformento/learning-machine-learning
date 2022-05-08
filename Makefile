@@ -1,5 +1,10 @@
+TAG_VERSION ?= 1
+
 build-jupyter-notebook:
-	docker build -t andreformento/jupyter-notebook .
+	docker build -t andreformento/jupyter-notebook:${TAG_VERSION} .
+
+publish-jupyter-notebook: build-jupyter-notebook
+	docker push andreformento/jupyter-notebook:${TAG_VERSION}
 
 only-run-jupyter-notebook:
 	docker rm -f jupyter-notebook || true
@@ -7,7 +12,7 @@ only-run-jupyter-notebook:
 			   --name jupyter-notebook \
 			   -v "${PWD}/src":/home/jovyan/work/src \
 			   -e JUPYTER_ENABLE_LAB=yes \
-			   andreformento/jupyter-notebook
+			   andreformento/jupyter-notebook:${TAG_VERSION}
 
 run-jupyter-notebook: build-jupyter-notebook only-run-jupyter-notebook
 
