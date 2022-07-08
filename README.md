@@ -21,4 +21,4 @@
 - [lista de exercício e correção](https://www.ime.usp.br/~fanajman/aprend_estat/)
 - [coursera, machine-learning](https://pt.coursera.org/learn/machine-learning)
 - [specializations/machine-learning-introduction](https://www.coursera.org/specializations/machine-learning-introduction)
-  - [course](https://www.coursera.org/learn/machine-learning/lecture/IjrpM/applications-of-machine-learning)
+  - [course](https://www.coursera.org/learn/machine-learning/home/welcome)
