@@ -21,6 +21,6 @@
 - [lista de exercício e correção](https://www.ime.usp.br/~fanajman/aprend_estat/)
 - [coursera, machine-learning](https://pt.coursera.org/learn/machine-learning)
 - [specializations/machine-learning-introduction](https://www.coursera.org/specializations/machine-learning-introduction)
-  - [course 1](/src/machine-learning-introduction/c1) / [Supervised Machine Learning: Regression and Classification](https://www.coursera.org/learn/machine-learning/home/welcome)
+  - [course 1](/src/machine-learning-introduction/C1) / [Supervised Machine Learning: Regression and Classification](https://www.coursera.org/learn/machine-learning/home/welcome)
   - [Advanced Learning Algorithms](https://www.coursera.org/learn/advanced-learning-algorithms?specialization=machine-learning-introduction)
   - [Unsupervised Learning, Recommenders, Reinforcement Learning](https://www.coursera.org/learn/unsupervised-learning-recommenders-reinforcement-learning?specialization=machine-learning-introduction)
