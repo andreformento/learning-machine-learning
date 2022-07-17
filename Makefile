@@ -1,4 +1,4 @@
-TAG_VERSION ?= 0.0.1
+TAG_VERSION ?= 0.0.2
 
 build:
 	docker build -t andreformento/jupyter-notebook:${TAG_VERSION} .
