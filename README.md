@@ -16,6 +16,7 @@
     - [Formação Machine Learning Avançada](https://www.alura.com.br/formacao-machine-learning-avancada)
   - Machine Learning
     - [Machine Learning Engineer, roteiro](https://cursos.alura.com.br/machine-learning-engineer-sthefanie-premebida-1619551696154-p149542)
+    - [Estatística com Python](https://cursos.alura.com.br/formacao-estatistica-python)
     - [Introdução a algoritmos não supervisionados](https://cursos.alura.com.br/course/machine-learning-algoritmos-nao-supervisionados)
     - [classificação com SKLearn](https://cursos.alura.com.br/course/machine-learning-introducao-a-classificacao-com-sklearn/task/46776)
     - [classificação por trás dos panos](https://cursos.alura.com.br/course/introducao-a-machine-learning-com-classificacao)
