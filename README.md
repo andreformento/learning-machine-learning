@@ -13,6 +13,7 @@
     - [Regressão linear: testando relações e prevendo resultados](https://cursos.alura.com.br/course/data-science-modelo-regressao-linear?preRequirementFrom=data-science-regressao-linear)
     - [Regressão Linear: técnicas avançadas de modelagem](https://cursos.alura.com.br/course/data-science-modelo-regressao-linear-assimetria-statsmodel?preRequirementFrom=data-science-regressao-linear)
     - [Data Science: modelos de regressão por baixo dos panos](https://cursos.alura.com.br/course/data-science-regressao-linear)
+    - [Formação Machine Learning Avançada](https://www.alura.com.br/formacao-machine-learning-avancada)
   - Machine Learning
     - [Machine Learning Engineer, roteiro](https://cursos.alura.com.br/machine-learning-engineer-sthefanie-premebida-1619551696154-p149542)
     - [Introdução a algoritmos não supervisionados](https://cursos.alura.com.br/course/machine-learning-algoritmos-nao-supervisionados)
