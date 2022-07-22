@@ -11,7 +11,7 @@
 - Alura
   - [data science](https://cursos.alura.com.br/course/data-science-primeiros-passos/task/49679)
     - [Regressão linear: testando relações e prevendo resultados](https://cursos.alura.com.br/course/data-science-modelo-regressao-linear?preRequirementFrom=data-science-regressao-linear)
-    - [https://cursos.alura.com.br/course/data-science-modelo-regressao-linear?preRequirementFrom=data-science-regressao-linear](https://cursos.alura.com.br/course/data-science-modelo-regressao-linear-assimetria-statsmodel?preRequirementFrom=data-science-regressao-linear)
+    - [Regressão Linear: técnicas avançadas de modelagem](https://cursos.alura.com.br/course/data-science-modelo-regressao-linear-assimetria-statsmodel?preRequirementFrom=data-science-regressao-linear)
     - [Data Science: modelos de regressão por baixo dos panos](https://cursos.alura.com.br/course/data-science-regressao-linear)
   - Machine Learning
     - [Machine Learning Engineer, roteiro](https://cursos.alura.com.br/machine-learning-engineer-sthefanie-premebida-1619551696154-p149542)
