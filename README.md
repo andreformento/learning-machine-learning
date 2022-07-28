@@ -10,13 +10,13 @@
 - https://github.com/onimaru/CursoBio
 - Alura
   - [data science](https://cursos.alura.com.br/course/data-science-primeiros-passos/task/49679)
-    - [Regressão linear: testando relações e prevendo resultados](https://cursos.alura.com.br/course/data-science-modelo-regressao-linear/task/49592?preRequirementFrom=data-science-regressao-linear)
+    - :arrow_forward: [Estatística com Python](https://cursos.alura.com.br/formacao-estatistica-python)
+    - :heavy_check_mark: [Regressão linear: testando relações e prevendo resultados](https://cursos.alura.com.br/course/data-science-modelo-regressao-linear/task/49592?preRequirementFrom=data-science-regressao-linear)
     - [Regressão Linear: técnicas avançadas de modelagem](https://cursos.alura.com.br/course/data-science-modelo-regressao-linear-assimetria-statsmodel?preRequirementFrom=data-science-regressao-linear)
     - [Data Science: modelos de regressão por baixo dos panos](https://cursos.alura.com.br/course/data-science-regressao-linear)
     - [Formação Machine Learning Avançada](https://www.alura.com.br/formacao-machine-learning-avancada)
   - Machine Learning
     - [Machine Learning Engineer, roteiro](https://cursos.alura.com.br/machine-learning-engineer-sthefanie-premebida-1619551696154-p149542)
-    - [Estatística com Python](https://cursos.alura.com.br/formacao-estatistica-python)
     - [Introdução a algoritmos não supervisionados](https://cursos.alura.com.br/course/machine-learning-algoritmos-nao-supervisionados)
     - [classificação com SKLearn](https://cursos.alura.com.br/course/machine-learning-introducao-a-classificacao-com-sklearn/task/46776)
     - [classificação por trás dos panos](https://cursos.alura.com.br/course/introducao-a-machine-learning-com-classificacao)
@@ -31,6 +31,6 @@
 - [lista de exercício e correção](https://www.ime.usp.br/~fanajman/aprend_estat/)
 - [coursera, machine-learning](https://pt.coursera.org/learn/machine-learning)
 - [specializations/machine-learning-introduction](https://www.coursera.org/specializations/machine-learning-introduction)
-  - [course 1](/src/machine-learning-introduction/C1) / [Supervised Machine Learning: Regression and Classification](https://www.coursera.org/learn/machine-learning/home/welcome)
+  - :arrow_forward: [course 1](/src/machine-learning-introduction/C1) / [Supervised Machine Learning: Regression and Classification](https://www.coursera.org/learn/machine-learning/home/welcome)
   - [Advanced Learning Algorithms](https://www.coursera.org/learn/advanced-learning-algorithms?specialization=machine-learning-introduction)
   - [Unsupervised Learning, Recommenders, Reinforcement Learning](https://www.coursera.org/learn/unsupervised-learning-recommenders-reinforcement-learning?specialization=machine-learning-introduction)
