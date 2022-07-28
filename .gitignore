@@ -139,3 +139,4 @@ dmypy.json
 cython_debug/
 
 data/
+src/data-science/regressao-linear/modelo_consumo_cerveja
