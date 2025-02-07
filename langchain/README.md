@@ -18,7 +18,6 @@ curl http://localhost:11434/api/generate -d '{
 }'
 ```
 
-
 ## run script
 ```sh
 python3 -m venv .venv
