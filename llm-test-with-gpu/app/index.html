@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DeepSeek Chat</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }
+        .chat { border: 1px solid #ccc; height: 400px; overflow-y: scroll; padding: 10px; margin-bottom: 10px; }
+        .message { margin: 10px 0; padding: 10px; border-radius: 5px; }
+        .user { background-color: #e3f2fd; text-align: right; }
+        .bot { background-color: #f5f5f5; }
+        .status { background-color: #fff3cd; border: 1px solid #ffeaa7; padding: 10px; margin: 10px 0; border-radius: 5px; }
+        .error { background-color: #f8d7da; border-color: #f5c6cb; color: #721c24; }
+        .loading { background-color: #d1ecf1; border-color: #bee5eb; color: #0c5460; }
+        input[type="text"] { width: 70%; padding: 10px; }
+        button { padding: 10px 20px; margin-left: 10px; }
+        button:disabled { opacity: 0.6; cursor: not-allowed; }
+    </style>
+</head>
+<body>
+    <h1>DeepSeek Chat</h1>
+    <div id="chat" class="chat"></div>
+    <div id="status" class="status" style="display: none;"></div>
+    <input type="text" id="message" placeholder="Ask me anything..." onkeypress="if(event.key==='Enter') sendMessage()">
+    <button id="sendBtn" onclick="sendMessage()">Send</button>
+
+    <script>
+        function addMessage(content, isUser) {
+            const chat = document.getElementById('chat');
+            const div = document.createElement('div');
+            div.className = 'message ' + (isUser ? 'user' : 'bot');
+            div.textContent = content;
+            chat.appendChild(div);
+            chat.scrollTop = chat.scrollHeight;
+        }
+
+        function showStatus(message, type = 'loading') {
+            const status = document.getElementById('status');
+            status.textContent = message;
+            status.className = `status ${type}`;
+            status.style.display = 'block';
+        }
+
+        function hideStatus() {
+            document.getElementById('status').style.display = 'none';
+        }
+
+        async function checkStatus() {
+            try {
+                const response = await fetch('/status');
+                const data = await response.json();
+
+                if (data.loading) {
+                    showStatus('Model is loading, please wait...', 'loading');
+                    document.getElementById('sendBtn').disabled = true;
+                } else if (!data.ready) {
+                    showStatus(`Model error: ${data.error}`, 'error');
+                    document.getElementById('sendBtn').disabled = true;
+                } else {
+                    hideStatus();
+                    document.getElementById('sendBtn').disabled = false;
+                }
+            } catch (error) {
+                showStatus('Cannot connect to server', 'error');
+                document.getElementById('sendBtn').disabled = true;
+            }
+        }
+
+        async function sendMessage() {
+            const input = document.getElementById('message');
+            const message = input.value.trim();
+            if (!message) return;
+
+            addMessage(message, true);
+            input.value = '';
+            showStatus('Processing your message...', 'loading');
+            document.getElementById('sendBtn').disabled = true;
+
+            try {
+                // Create AbortController for timeout
+                const controller = new AbortController();
+                const timeoutId = setTimeout(() => controller.abort(), 30000); // 30 second timeout
+
+                const response = await fetch('/chat', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({message: message}),
+                    signal: controller.signal
+                });
+
+                clearTimeout(timeoutId);
+
+                if (response.ok) {
+                    const data = await response.json();
+                    addMessage(data.response, false);
+                    hideStatus();
+                } else {
+                    const data = await response.json();
+                    addMessage(`Error: ${data.error}`, false);
+                    showStatus(`Error: ${data.error}`, 'error');
+                }
+            } catch (error) {
+                if (error.name === 'AbortError') {
+                    addMessage('Error: Request timed out. The model might be too slow or overloaded.', false);
+                    showStatus('Request timed out. Try again later.', 'error');
+                } else {
+                    addMessage('Error: ' + error.message, false);
+                    showStatus('Network error: ' + error.message, 'error');
+                }
+            } finally {
+                document.getElementById('sendBtn').disabled = false;
+            }
+        }
+
+        // Check status on page load and every 5 seconds
+        checkStatus();
+        setInterval(checkStatus, 5000);
+    </script>
+</body>
+</html>
