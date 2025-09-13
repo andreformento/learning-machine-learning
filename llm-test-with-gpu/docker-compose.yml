@@ -5,6 +5,7 @@ services:
       - "5000:5000"
     environment:
       - NVIDIA_VISIBLE_DEVICES=all
+      - MODEL_NAME
     deploy:
       resources:
         reservations:
