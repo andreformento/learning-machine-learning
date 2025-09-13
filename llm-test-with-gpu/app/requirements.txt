@@ -1,0 +1,17 @@
+torch
+transformers
+accelerate
+flask
+flask-cors
+python-dotenv
+bitsandbytes
+autoawq
+auto-gptq
+optimum
+einops
+sentencepiece
+safetensors
+numpy
+protobuf
+llama-cpp-python
+huggingface-hub

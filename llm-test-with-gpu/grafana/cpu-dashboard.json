@@ -1,0 +1,223 @@
+{
+  "id": null,
+  "uid": "cpu-dashboard",
+  "title": "CPU Monitoring",
+  "tags": ["cpu", "monitoring"],
+  "style": "dark",
+  "timezone": "browser",
+  "panels": [
+    {
+      "id": 1,
+      "title": "CPU Usage (All Cores)",
+      "type": "stat",
+      "targets": [
+        {
+          "expr": "100 - (avg by (instance) (rate(node_cpu_seconds_total{mode=\"idle\"}[5m])) * 100)",
+          "refId": "A"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "percent",
+          "min": 0,
+          "max": 100,
+          "color": {
+            "mode": "thresholds"
+          },
+          "thresholds": {
+            "steps": [
+              {"color": "green", "value": 0},
+              {"color": "yellow", "value": 70},
+              {"color": "red", "value": 90}
+            ]
+          }
+        }
+      },
+      "gridPos": {"h": 8, "w": 6, "x": 0, "y": 0}
+    },
+    {
+      "id": 2,
+      "title": "CPU Load Average (1min)",
+      "type": "stat",
+      "targets": [
+        {
+          "expr": "node_load1",
+          "refId": "A"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "color": {
+            "mode": "thresholds"
+          },
+          "thresholds": {
+            "steps": [
+              {"color": "green", "value": 0},
+              {"color": "yellow", "value": 2},
+              {"color": "red", "value": 4}
+            ]
+          }
+        }
+      },
+      "gridPos": {"h": 8, "w": 6, "x": 6, "y": 0}
+    },
+    {
+      "id": 3,
+      "title": "System Memory Usage",
+      "type": "stat",
+      "targets": [
+        {
+          "expr": "(1 - (node_memory_MemAvailable_bytes / node_memory_MemTotal_bytes)) * 100",
+          "refId": "A"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "percent",
+          "min": 0,
+          "max": 100,
+          "color": {
+            "mode": "thresholds"
+          },
+          "thresholds": {
+            "steps": [
+              {"color": "green", "value": 0},
+              {"color": "yellow", "value": 70},
+              {"color": "red", "value": 90}
+            ]
+          }
+        }
+      },
+      "gridPos": {"h": 8, "w": 6, "x": 12, "y": 0}
+    },
+    {
+      "id": 4,
+      "title": "CPU Cores Count",
+      "type": "stat",
+      "targets": [
+        {
+          "expr": "count by (instance) (node_cpu_seconds_total{mode=\"idle\"})",
+          "refId": "A"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "color": {
+            "mode": "fixed",
+            "fixedColor": "blue"
+          }
+        }
+      },
+      "gridPos": {"h": 8, "w": 6, "x": 18, "y": 0}
+    },
+    {
+      "id": 5,
+      "title": "CPU Usage Over Time",
+      "type": "timeseries",
+      "targets": [
+        {
+          "expr": "100 - (avg by (instance) (rate(node_cpu_seconds_total{mode=\"idle\"}[5m])) * 100)",
+          "refId": "A",
+          "legendFormat": "CPU Usage %"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "percent",
+          "min": 0,
+          "max": 100,
+          "color": {
+            "mode": "palette-classic"
+          }
+        }
+      },
+      "gridPos": {"h": 8, "w": 12, "x": 0, "y": 8}
+    },
+    {
+      "id": 6,
+      "title": "CPU Load Average Over Time",
+      "type": "timeseries",
+      "targets": [
+        {
+          "expr": "node_load1",
+          "refId": "A",
+          "legendFormat": "1min"
+        },
+        {
+          "expr": "node_load5",
+          "refId": "B",
+          "legendFormat": "5min"
+        },
+        {
+          "expr": "node_load15",
+          "refId": "C",
+          "legendFormat": "15min"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "color": {
+            "mode": "palette-classic"
+          }
+        }
+      },
+      "gridPos": {"h": 8, "w": 12, "x": 12, "y": 8}
+    },
+    {
+      "id": 7,
+      "title": "Memory Usage Over Time",
+      "type": "timeseries",
+      "targets": [
+        {
+          "expr": "(1 - (node_memory_MemAvailable_bytes / node_memory_MemTotal_bytes)) * 100",
+          "refId": "A",
+          "legendFormat": "Memory Usage %"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "percent",
+          "min": 0,
+          "max": 100,
+          "color": {
+            "mode": "palette-classic"
+          }
+        }
+      },
+      "gridPos": {"h": 8, "w": 12, "x": 0, "y": 16}
+    },
+    {
+      "id": 8,
+      "title": "CPU Usage by Core",
+      "type": "timeseries",
+      "targets": [
+        {
+          "expr": "100 - (rate(node_cpu_seconds_total{mode=\"idle\"}[5m]) * 100)",
+          "refId": "A",
+          "legendFormat": "Core {{cpu}}"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "percent",
+          "min": 0,
+          "max": 100,
+          "color": {
+            "mode": "palette-classic"
+          }
+        }
+      },
+      "gridPos": {"h": 8, "w": 12, "x": 12, "y": 16}
+    }
+  ],
+  "time": {
+    "from": "now-1h",
+    "to": "now"
+  },
+  "refresh": "5s",
+  "schemaVersion": 30,
+  "version": 1
+}
