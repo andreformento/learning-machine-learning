@@ -1,5 +1,7 @@
 .PHONY: help run stop list-models
 
+#SHELL := /usr/bin/zsh
+
 MODEL ?=
 
 # Allow lowercase override: `make run model=...`
@@ -79,3 +81,6 @@ stop:
 
 run: stop
 	@MODEL_NAME=$(MODEL) docker compose up --build -d
+
+ps:
+	@docker ps

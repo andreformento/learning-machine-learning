@@ -25,6 +25,7 @@ make run model=deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B
   - `make list-models filter=coder`
   - `make list-models memory=8`
   - Example: `unsloth/DeepSeek-R1-Distill-Llama-8B-unsloth-bnb-4bit` (~6–8GB VRAM, ~6GB download)
+- https://huggingface.co/models
 
 ## Examples (tested)
 
